@@ -1,4 +1,5 @@
 -- Criar novo BD
+DROP DATABASE IF EXISTS GREENHOUSE;
 CREATE DATABASE GREENHOUSE;
 
 -- Utilizando o BD
@@ -15,7 +16,7 @@ CREATE TABLE `GREENHOUSE`.`PLANTS` (
 
 -- COMANDOS DML DE INSERÇÃO DE DADOS
 
-INSERT INTO `plants` VALUES ('Absinto',19,'HIGH'),
+INSERT INTO plants (PLANT_NAME, SENSOR_VALUE, SENSOR_LEVEL) VALUES ('Absinto',19,'HIGH'),
 							('Alfazema',15.8,'HIGH'),
 							('Arruda',19.9,'HIGH'),
 							('Cânfora',29,'HIGH'),
@@ -27,7 +28,7 @@ INSERT INTO `plants` VALUES ('Absinto',19,'HIGH'),
 							('Rosa de Saron',11.6,'LOW'),
 							('Tagetes',12,'LOW'),
 							('Violeta',25,'HIGH');
-
+                            
 -- Selecionando tudo
 SELECT  * FROM `GREENHOUSE`.`PLANTS`;
 
@@ -77,3 +78,16 @@ UPDATE PLANTS SET SENSOR_VALUE = 34, SENSOR_LEVEL = ('HIGH') WHERE PLANT_NAME = 
 
 -- Comando DELETE para apagar registros
 DELETE FROM PLANTS WHERE PLANT_NAME = 'Arruda';
+INSERT INTO GREENHOUSE.PLANTS VALUES ('Arruda', 14.5, 'LOW');
+
+-- Comando INSERT INTO SELECT FROM para "copiar" uma tabela em outra.
+CREATE TABLE COMPONENTES(ID_COMPONENTE INTEGER PRIMARY KEY NOT NULL AUTO_INCREMENT, nome varchar(30));
+INSERT INTO COMPONENTES (NOME) SELECT PLANT_NAME FROM PLANTS;
+SELECT * FROM COMPONENTES;
+
+-- Comando INNER JOIN para retornar dados que sejam iguais em duas tabelas.
+SELECT C.ID_COMPONENTE, C.NOME, P.SENSOR_LEVEL FROM COMPONENTES AS C INNER JOIN PLANTS AS P ON C.NOME = P.PLANT_NAME;
+
+
+
+
