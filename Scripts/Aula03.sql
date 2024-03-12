@@ -88,6 +88,12 @@ SELECT * FROM COMPONENTES;
 -- Comando INNER JOIN para retornar dados que sejam iguais em duas tabelas.
 SELECT C.ID_COMPONENTE, C.NOME, P.SENSOR_LEVEL FROM COMPONENTES AS C INNER JOIN PLANTS AS P ON C.NOME = P.PLANT_NAME;
 
+-- Comando CREATE VIEW para criar tabelas "virtuais" com propósito de visualização de dados.alter
+-- A VIEW abaixo apresenta as plantas cujo nível de temperatura pode ser considerado baixo, ou frio.
+CREATE VIEW COLD_PLANTS AS SELECT PLANT_NAME, SENSOR_VALUE FROM PLANTS WHERE SENSOR_VALUE<15 ORDER BY SENSOR_VALUE DESC;
+SELECT * FROM COLD_PLANTS;
+DROP VIEW COLD_PLANTS;
+
 
 
 
