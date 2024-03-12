@@ -85,8 +85,43 @@ CREATE TABLE COMPONENTES(ID_COMPONENTE INTEGER PRIMARY KEY NOT NULL AUTO_INCREME
 INSERT INTO COMPONENTES (NOME) SELECT PLANT_NAME FROM PLANTS;
 SELECT * FROM COMPONENTES;
 
--- Comando INNER JOIN para retornar dados que sejam iguais em duas tabelas.
+-- Comando INNER JOIN para retornar dados que sejam iguais em duas tabelas (NESTE CASO, todos).
 SELECT C.ID_COMPONENTE, C.NOME, P.SENSOR_LEVEL FROM COMPONENTES AS C INNER JOIN PLANTS AS P ON C.NOME = P.PLANT_NAME;
+
+
+
+-- Comando LEFT JOIN para retornar todos os dados de uma tabela juntamente com aqueles que sejam iguais em duas.
+CREATE TABLE GREENHOUSE.VENDAS (
+	ID_VENDA INTEGER NOT NULL AUTO_INCREMENT,
+    PLANT_NAME CHAR(30) NOT NULL,
+    VALOR DOUBLE NOT NULL,
+    DATA_VENDA TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY(ID_VENDA),
+    FOREIGN KEY(PLANT_NAME) REFERENCES PLANTS(PLANT_NAME)
+);
+
+INSERT INTO VENDAS (PLANT_NAME, VALOR)
+VALUES('Absinto', 5.44),
+	  ('Estragão', 2.50),
+      ('Alfazema', 5.75),
+      ('Rosa de Saron', 49.99);
+
+-- O comando abaixo retornará toda a lista de plantas cadastradas.
+-- Entretanto, algumas delas possuem registros de vendas na tabela de vendas.
+-- A ligação entre as duas se dá pela chave estrangeira do nome das plantas.
+-- Assim, as plantas que possuem um ID de venda atrelado ao seu nome aparecerão primeiro.
+SELECT PLANTS.PLANT_NAME, VENDAS.ID_VENDA, VENDAS.VALOR FROM PLANTS
+LEFT JOIN VENDAS ON PLANTS.PLANT_NAME = VENDAS.PLANT_NAME
+ORDER BY ID_VENDA DESC;
+
+-- Se o comando INNER JOIN fosse utilizado, apenas os registros em comum apareceriam.
+SELECT PLANTS.PLANT_NAME, VENDAS.ID_VENDA, VENDAS.VALOR FROM PLANTS
+INNER JOIN VENDAS ON PLANTS.PLANT_NAME = VENDAS.PLANT_NAME;
+
+
+
+
+
 
 -- Comando CREATE VIEW para criar tabelas "virtuais" com propósito de visualização de dados.alter
 -- A VIEW abaixo apresenta as plantas cujo nível de temperatura pode ser considerado baixo, ou frio.
