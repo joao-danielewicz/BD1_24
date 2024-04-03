@@ -103,7 +103,18 @@ INSERT INTO ITEM_NOTA_FISCAL (NRO_NOTA, COD_PRODUTO, QTD_PRODUTO, VALOR_PRECO, V
 VALUES (1, 1, 20, 2.50, 50, "Banana-da-terra"), (1, 2, 2, 3.50, 7, "Leite"), (1, 3, 1, 12, 12, "Desodorante Old Spice"),
 	   (2, 1, 1 , 1.75, 17.5, "Banana-nanica"), (2, 2, 10, 3.60, 36, "Leite Longa Vida"), (2, 3, 2, 8, 16, "Desodorante Herbissimo"),
        (3, 1, 5, 6, 30, "Banana-prata"), (3, 2, 12, 4.5, 54, "Leite Tirol"), (3, 3, 3, 15, 45, "Desodorante Dove"),
-       (4, 4, 1, 35, 35, "Salame"), (4, 2, 6, 5, 30, "Leite Aurora");
+       (4, 4, 1, 35, 35, "Salame"), (4, 2, 6, 5, 30, "Leite Aurora"),
+       (5, 5, 1, 56, 56,"Queijo Mussarela"),(5, 7, 1, 29.99, 29.99,"Cuca de Uva"),
+       (6, 21, 2, 12, 24, "Lasanha de Presunto e Queijo"), (6, 22, 2, 15, 30,"Pizza de Calabresa"),
+       (7, 12, 1, 13, 13,"Maçã Fuji"), (7, 11, 2, 9, 18,"Caqui Fuyu"),
+       (8, 20, 2, 5.99, 11.98,"Macarrão Espaguete"), (8, 19, 1, 9, 9,"Feijão Preto"), (8, 18, 5, 6.99, 34.95,"Arroz Branco"),
+       (9, 10, 1, 7, 7,"Coxinha de Frango"), (9, 16, 1, 5, 5,"Enroladinho de Salsicha"), (9, 14, 1, 2.99, 2.99,"Toddynho"),
+       (10, 13, 2, 10, 20,"Pinhão"),
+       (11, 23, 2, 5.75, 11.50,"Lámen de Galinha Caipira"), (11, 24, 1, 23, 23,"Suco de Laranja"),
+       (12, 17, 2, 20, 40,"Ovos Brancos"), (12, 15, 1, 43, 43,"Presunto Cozido"),
+       (13, 9, 2, 6, 12,"Chocolate Branco"),
+       (14, 6, 2, 8, 16,"Pão Francês"), (14, 25, 2, 10, 20,"Coca-Cola"),
+       (15, 4, 1, 40, 40,"Salame"), (15, 13, 1, 10, 10,"Pinhão"), (15, 8, 2, 4.7, 9.4,"Bolacha de Chocolate");
 
 INSERT INTO NOTA_FISCAL (NOME_CLIENTE, END_CLIENTE, NOME_VENDEDOR, VALOR_TOTAL) VALUES
 						("Kate Bush", "Devon, Reino Unido", "Heathcliff", 60);
@@ -114,6 +125,9 @@ VALUES (16, 1, 4, 10, 40, "Banana-maçã");
 SELECT * FROM PRODUTO;
 SELECT * FROM ITEM_NOTA_FISCAL;
 SELECT * FROM NOTA_FISCAL;
+
+
+
 
 
 
