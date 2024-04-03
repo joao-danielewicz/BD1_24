@@ -59,7 +59,28 @@ INSERT INTO PRODUTO (DESC_PRODUTO, UN_MED, VL_PRODUTO) VALUES ("Leite", "L", 3.6
 INSERT INTO PRODUTO (DESC_PRODUTO, UN_MED, VL_PRODUTO) VALUES ("Desodorante", "UN", 12);
 INSERT INTO PRODUTO (DESC_PRODUTO, UN_MED, VL_PRODUTO) VALUES 
 					("Salame", "KG", 40),
-                    ("")
+                    ("Queijo", "KG", 56),
+                    ("Pão", "KG", 8),
+                    ("Cuca", "KG", 29.99),
+                    ("Bolacha", "UN", 4.70),
+                    ("Chocolate", "UN", 6),
+                    ("Coxinha", "UN", 7),
+                    ("Caqui", "KG", 9),
+                    ("Maçã", "KG", 13),
+                    ("Pinhão", "KG", 10),
+                    ("Toddynho", "UN", 2.99),
+                    ("Presunto", "KG", 43),
+                    ("Enroladinho", "UN", 5),
+                    ("Ovo", "Dúzia", 20),
+                    ("Arroz", "KG", 6.99),
+                    ("Feijão", "KG", 9),
+                    ("Macarrão", "Meio KG", 5.99),
+                    ("Lasanha", "UN", 12),
+                    ("Pizza", "UN", 15),
+                    ("Lámen", "UN", 5.75),
+                    ("Suco", "L", 23),
+                    ("Refrigerante", "2L", 10);
+                                        
 
 INSERT INTO NOTA_FISCAL (NOME_CLIENTE, END_CLIENTE, NOME_VENDEDOR, VALOR_TOTAL) VALUES 
 						("João Danielewicz", "Rua Tal, 0", "Bianca", 50.00),
@@ -79,11 +100,24 @@ INSERT INTO NOTA_FISCAL (NOME_CLIENTE, END_CLIENTE, NOME_VENDEDOR, VALOR_TOTAL) 
                         ("Emma Stone", "Lisboa", "Bella Baxter", 470);
 
 INSERT INTO ITEM_NOTA_FISCAL (NRO_NOTA, COD_PRODUTO, QTD_PRODUTO, VALOR_PRECO, VALOR_TOTAL, DESC_PRODUTO) 
-VALUES (1, 1, 20, 2.50, 50, "Banana-da-terra"), (1, 2, 2, 3.60, 7.20, "Leite"), (1, 3, 1, 12, 12, "Desodorante Old Spice"),
+VALUES (1, 1, 20, 2.50, 50, "Banana-da-terra"), (1, 2, 2, 3.50, 7, "Leite"), (1, 3, 1, 12, 12, "Desodorante Old Spice"),
 	   (2, 1, 1 , 1.75, 17.5, "Banana-nanica"), (2, 2, 10, 3.60, 36, "Leite Longa Vida"), (2, 3, 2, 8, 16, "Desodorante Herbissimo"),
-       (3, 1, 5, 6, 30, "Banana-prata"), (3, 2, 12, 4.5, 54, "Leite Tirol"), (3, 3, 3, 15, 45, "Desodorante Dove");
-       
+       (3, 1, 5, 6, 30, "Banana-prata"), (3, 2, 12, 4.5, 54, "Leite Tirol"), (3, 3, 3, 15, 45, "Desodorante Dove"),
+       (4, 4, 1, 35, 35, "Salame"), (4, 2, 6, 5, 30, "Leite Aurora");
 
-select * from item_nota_fiscal;
+INSERT INTO NOTA_FISCAL (NOME_CLIENTE, END_CLIENTE, NOME_VENDEDOR, VALOR_TOTAL) VALUES
+						("Kate Bush", "Devon, Reino Unido", "Heathcliff", 60);
+                        
+INSERT INTO ITEM_NOTA_FISCAL (NRO_NOTA, COD_PRODUTO, QTD_PRODUTO, VALOR_PRECO, VALOR_TOTAL, DESC_PRODUTO) 
+VALUES (16, 1, 4, 10, 40, "Banana-maçã");
+
+SELECT * FROM PRODUTO;
+SELECT * FROM ITEM_NOTA_FISCAL;
+SELECT * FROM NOTA_FISCAL;
 
 
+
+
+
+
+select * from nota_fiscal;
