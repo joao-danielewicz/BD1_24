@@ -112,7 +112,71 @@ INSERT INTO ARTIGO(
 		('Novas Abordagens para Ponteiros em Linguagens Orientadas a Objetos.', 'lorem ipsum', 'lorem ipsum', 2, 2),
         ('Simplificação de Diagramas para Ensino Prático em Escolas de Ensino Médio/Técnico.', 'lorem ipsum', 'lorem ipsum', 3, 3),
         ('Revolução de Peças: Inovação em Organização de Componentes e Periféricos.', 'lorem ipsum', 'lorem ipsum', 4, 4),
-        ('Análise de Sistemas Operacionais Baseados em Linux e suas Compatibilidades com Programas Populares.', 'lorem ipsum', 'lorem ipsum', 5, 5)
+        ('Análise de Sistemas Operacionais Baseados em Linux e suas Compatibilidades com Programas Populares.', 'lorem ipsum', 'lorem ipsum', 5, 5);
+        
+-- COMISSÃO CIENTÍFICA
+INSERT INTO COMISSAO_CIENTIFICA(
+    ID_TEMA,
+    ID_ARTIGO
+)VALUES (1,1),
+		(2,2),
+        (3,3),
+        (4,4),
+        (5,5);
+        
+-- AVALIADORES DA COMISSÃO
+INSERT INTO PESSOA(
+    NOME,
+    MATRICULA ,
+    DATA_NASC ,
+    CONTATO 
+) VALUES ('Ringo Starr', 487, 19600205, 'ringost.arr@btls.com'),
+		('Clara Nunes', 689, 20021214, 'clanunes@mpb.com'),
+        ('José Monteiro', 842, 20000628, 'igor123@pbsd.com'),
+        ('Isabela Kleber', 271, 19970723, 'isabelabela13@klebinho.com'),
+        ('Matheus Henrique', 1002, 20030918, 'matheush@btuva.com');
+select * from pessoa;
 
+INSERT INTO JURADO(
+    CARGO,
+    MATRICULA,
+    ID_PESSOA,
+    ID_COMISSAO_CIENTIFICA
+) VALUES ('Professor', 487, 12, 1),
+		('Professora', 689, 13, 2),
+		('Diretor de curso', 842, 14, 3),
+        ('Pesquisadora', 271, 15, 4),
+        ('Professor', 1002, 16, 5);
 
+-- PARECERES DA AVALIAÇÃO
+INSERT INTO PARECER(
+    NOTA,
+    DESCRICAO,
+    ID_ARTIGO,
+    ID_JURADO
+) VALUES (10, 'Ótimo esclarecimento e simplificação da PL/PGSQL.', 1, 2),
+		(9, 'Bons usos dos recursos propostos e baixo acoplamento.', 2, 5),
+        (8, 'Método bom, mas a didática deverá ser melhorada.', 3, 3),
+        (9, 'São notáveis os aspectos da reusabilidade das peças e economia de energia.', 4, 1),
+        (7, 'Tema vago e não abrangente, mas que com esforço pode ser desenvolvido.', 5, 4);
 
+-- PARTICIPANTES COMUNS 
+INSERT INTO PESSOA (NOME, MATRICULA, DATA_NASC, CONTATO) VALUES
+ ('Wilson', 8574, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Willow', 4251, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wolfgang', 2689, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wendy', 1574, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wickerbottom', 1245, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Woodie', 8749, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wes', 1487, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Maxwell', 1289, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wigfrid', 1204, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Webber', 1259, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Winona', 9875, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Warly', 1023, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wortox', 986, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wormwood', 1478, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wurt', 1254, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Walter', 8579, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999))),
+ ('Wanda', 9987, (SELECT TIMESTAMP('1980-01-01') + INTERVAL FLOOR( RAND( ) * 30) YEAR), (SELECT FLOOR(RAND()*99999999)));
+ 
